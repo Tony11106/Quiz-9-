@@ -1,0 +1,60 @@
+# Quiz 9
+
+# Tony Maladonado-Perez
+# amaldo36@uic.edu
+
+# I hereby attest that I have adhered to the rules for quizzes amd projects as well as UIC's
+# Academic Integrity standards. Signed: Anthony Maldonado-Perez
+
+# Question 1
+
+import math
+class MyFunction:
+    # MyFunction: f(x) = c / (1 + 2*x)**p
+    def __init__(self,top,bottom):
+        self.num = top
+        self.den = bottom
+    # I was trying to create the fraction in the equation given
+    def numerator(self,c):
+        self.num = c
+    def denominator(self,p):
+        self.den = p
+
+    def __repr__(self):
+        return str(self.num) + str(self.den)
+        # if I did not try to make the fraction the __repr__ method would not let me divide
+    def __mul__(self, other):
+        new_function = MyFunction(self.num * other.num, self.den * other.den)
+        return new_function
+    def derivative(self):
+        # MyFunction: f'(x) = -2*c*p (1+2x)**p + 1
+        new_function = MyFunction(-2*self.num / self.den + 1)
+        return new_function
+
+
+# Question 2
+
+# a)
+class MyClass:
+    def method1(self,x,y):
+        self.x = True
+        self.y = (2,4,9,4)
+# b)
+    def message(self):
+        print('hello')
+
+# c)
+    def method2(self, other):
+        n = self.y[2] + other.y[-1]
+        # self.y is locating the 3rd integer on the list
+        # other.y is locating the LAST integer on the list
+        m = self.y.count(4) + other.y.count(9)
+        # self.y.count is returning the count of OLD string
+        # other.y.count is returning the count of NEW string
+        if self.x and other.x:
+        # if OLD self.x and NEW other.x are True return n
+            return n
+        else:
+            return m
+
+
